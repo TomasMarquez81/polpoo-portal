@@ -5,4 +5,5 @@ export interface Shipment {
   status: "pending" | "in_transit" | "delivered" | "delayed"
   eta: string
   truckNumber: number
+  stopOrder: number
 }

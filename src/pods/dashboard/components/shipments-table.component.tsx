@@ -38,6 +38,7 @@ export const ShipmentsTable = ({ shipments, selectedTruck, onSelectTruck, clearF
             <th className="p-4">Truck</th>
             <th className="p-4">Status</th>
             <th className="p-4">ETA</th>
+            <th className="p-4">Stop</th>
           </tr>
 
         </thead>
@@ -70,6 +71,10 @@ export const ShipmentsTable = ({ shipments, selectedTruck, onSelectTruck, clearF
 
               <td className="p-4">
                 {shipment.eta}
+              </td>
+
+              <td className="p-4 font-bold">
+                {shipment.stopOrder}
               </td>
 
             </tr>
