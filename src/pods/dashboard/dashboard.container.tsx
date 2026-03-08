@@ -18,10 +18,22 @@ export const DashboardContainer = () => {
     ? shipments?.filter(s => s.truckNumber === selectedTruck)
     : shipments
 
+  // shipments que forman la ruta (solo pendientes o en reparto)
+  const routeShipments = selectedTruck
+    ? shipments
+        ?.filter(
+          s =>
+            s.truckNumber === selectedTruck &&
+            s.status !== "delivered"
+        )
+        .sort((a, b) => a.stopOrder - b.stopOrder)
+    : []
+
   return (
     <DashboardComponent
       vehicles={filteredVehicles ?? []}
       shipments={filteredShipments ?? []}
+      routeShipments={routeShipments ?? []}
       selectedTruck={selectedTruck}
       onSelectTruck={setSelectedTruck}
       clearFilter={() => setSelectedTruck(null)}

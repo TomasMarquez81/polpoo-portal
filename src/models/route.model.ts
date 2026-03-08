@@ -4,6 +4,7 @@ export interface RouteStop {
   lat: number
   lng: number
   status: string
+  stopOrder: number
 }
 
 export interface Route {
