@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { polpooApi } from "../../../services/api/polpoo.api"
-import { mapShipmentFromApi } from "../../../services/mappers/shipment.mapper"
 import type { Shipment } from "../../../models/shipment.model"
 
 export const useShipments = () => {
@@ -9,16 +8,14 @@ export const useShipments = () => {
   const [loading, setLoading] = useState(true)
 
   const load = async () => {
-    
+
     if (document.hidden) return
 
     try {
 
       const apiData = await polpooApi.getShipments()
 
-      const mapped = apiData.map(mapShipmentFromApi)
-
-      setData(mapped)
+      setData(apiData)
 
     } catch (err) {
 

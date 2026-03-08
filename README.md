@@ -1,73 +1,91 @@
-# React + TypeScript + Vite
+# Polpoo Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dashboard web para visualizar rutas de reparto, vehículos y estado de entregas integradas con la plataforma **Polpoo**.
 
-Currently, two official plugins are available:
+El proyecto está construido con **React + TypeScript + Leaflet** y está pensado para integrarse con la API de Polpoo.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+# Características
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Visualización de flota en mapa
+- Filtro por camión
+- Visualización de rutas
+- Timeline de entregas
+- Tabla de pedidos
+- Sistema de datos **Mock / API**
+- Actualización automática cada **5 minutos**
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+# Tecnologías
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React
+- TypeScript
+- Leaflet
+- TailwindCSS
+- Vite
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Instalación
+
+```bash
+git clone https://github.com/TomasMarquez81/polpoo-portal
+cd polpoo-portal
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+# Configuración
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Archivo `.env`
+
 ```
+VITE_USE_MOCK=true
+VITE_POLPOO_API_URL=https://api.polpoo.com
+```
+
+### Modo desarrollo
+
+```
+VITE_USE_MOCK=true
+```
+
+Usa datos simulados.
+
+### Modo producción
+
+```
+VITE_USE_MOCK=false
+```
+
+Conecta con la API real.
+
+---
+
+# Arquitectura
+
+```
+components → UI
+hooks → lógica de datos
+services → conexión API
+mocks → datos simulados
+```
+
+---
+
+# Próximas mejoras
+
+- Integración completa con API Polpoo
+- Autenticación OAuth
+- Mejoras de visualización en mapa
+- Dashboard de métricas logísticas
+
+---
+
+# Autor
+
+Tomás Márquez

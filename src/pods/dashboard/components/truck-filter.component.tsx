@@ -53,7 +53,7 @@ export const TruckFilter = ({
 
       <button
         onClick={clearFilter}
-        className="ml-4 px-3 py-1 text-sm bg-slate-200 rounded"
+        className="ml-4 mr-4 px-4 py-1.5 text-sm font-medium text-white bg-slate-600 rounded-lg hover:bg-slate-700 transition"
       >
         Clear filter
       </button>

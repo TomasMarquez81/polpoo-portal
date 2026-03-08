@@ -15,7 +15,7 @@ export const ShipmentsTable = ({ shipments, selectedTruck, onSelectTruck, clearF
 
       <div className="flex justify-between items-center mb-3">
 
-        <h3 className="font-bold">
+        <h3 className="font-bold text-lg p-4">
             Active Shipments
         </h3>
 
